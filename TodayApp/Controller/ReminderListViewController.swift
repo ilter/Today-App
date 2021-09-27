@@ -40,6 +40,8 @@ extension ReminderListViewController {
     func setupCellUI(cell: ReminderListCell, indexPath: IndexPath){
         let reminder = Reminder.testData[indexPath.row]
         let image = reminder.isComplete ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
+        cell.title.numberOfLines = 0
+        cell.title.textAlignment = .natural
         cell.title.text = reminder.title
         cell.dateLabel.text = reminder.dueDate.description
         cell.doneButton.setBackgroundImage(image, for: .normal)
