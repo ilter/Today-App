@@ -1,24 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="51K-ik-dt8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Reminder List View Controller-->
+        <scene sceneID="qie-kP-eXk">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController id="BKG-hn-XUj" customClass="ReminderListViewController" customModule="TodayApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YKT-GA-rrR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReminderListCell" rowHeight="99" id="3d7-HH-nic" customClass="ReminderListCell" customModule="TodayApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="99"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3d7-HH-nic" id="ncc-eR-v3W">
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="99"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuS-dK-79A">
+                                            <rect key="frame" x="20" y="28" width="44" height="43"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="E5K-r6-qdQ"/>
+                                                <constraint firstAttribute="width" secondItem="tuS-dK-79A" secondAttribute="height" multiplier="1:1" id="zYQ-Uy-iyF"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="circle" catalog="system"/>
+                                            <connections>
+                                                <action selector="doneButtonTapped:" destination="3d7-HH-nic" eventType="touchUpInside" id="A6C-ua-aff"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIS-0L-0Gw">
+                                            <rect key="frame" x="72" y="57" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Az-ss-ufv">
+                                            <rect key="frame" x="72" y="18" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tuS-dK-79A" firstAttribute="centerY" secondItem="ncc-eR-v3W" secondAttribute="centerY" id="0mV-y9-V3G"/>
+                                        <constraint firstItem="8Az-ss-ufv" firstAttribute="top" secondItem="ncc-eR-v3W" secondAttribute="top" constant="18" id="7DA-K3-uCR"/>
+                                        <constraint firstItem="NIS-0L-0Gw" firstAttribute="top" secondItem="8Az-ss-ufv" secondAttribute="bottom" constant="18" id="CZ6-11-QC6"/>
+                                        <constraint firstAttribute="bottom" secondItem="NIS-0L-0Gw" secondAttribute="bottom" constant="21" id="MUV-mu-csf"/>
+                                        <constraint firstItem="tuS-dK-79A" firstAttribute="leading" secondItem="ncc-eR-v3W" secondAttribute="leading" constant="20" symbolic="YES" id="SCG-jK-8H8"/>
+                                        <constraint firstItem="8Az-ss-ufv" firstAttribute="leading" secondItem="tuS-dK-79A" secondAttribute="trailing" constant="8" symbolic="YES" id="n4o-Ez-ae6"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Az-ss-ufv" secondAttribute="trailing" constant="20" symbolic="YES" id="prl-l6-FPm"/>
+                                        <constraint firstItem="NIS-0L-0Gw" firstAttribute="leading" secondItem="8Az-ss-ufv" secondAttribute="leading" id="qwP-7S-MEu"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="NIS-0L-0Gw" id="1lH-qg-LCz"/>
+                                    <outlet property="doneButton" destination="tuS-dK-79A" id="pGJ-ox-T4Q"/>
+                                    <outlet property="title" destination="8Az-ss-ufv" id="MiL-nz-EQQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BKG-hn-XUj" id="Us0-77-bXw"/>
+                            <outlet property="delegate" destination="BKG-hn-XUj" id="2M4-o4-fgh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="aAO-Ub-f1e"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uq-NT-PU1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-3567" y="5"/>
+        </scene>
+        <!--View Reminder-->
+        <scene sceneID="PqW-5V-3M7">
+            <objects>
+                <tableViewController storyboardIdentifier="ReminderDetailViewController" id="e6G-TZ-tn4" customClass="ReminderDetailViewController" customModule="TodayApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jo7-j8-YL2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReminderDetailCell" textLabel="ccJ-iM-i3W" style="IBUITableViewCellStyleDefault" id="Yxa-Yq-sYD">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yxa-Yq-sYD" id="Ylt-Aj-1dd">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ccJ-iM-i3W">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="e6G-TZ-tn4" id="kjk-br-CaQ"/>
+                            <outlet property="delegate" destination="e6G-TZ-tn4" id="AV2-Xd-i93"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="View Reminder" id="Oqz-JS-83b"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QtW-zV-Kdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2516" y="5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yEz-0m-Cco">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="51K-ik-dt8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GdR-yH-Oix">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BKG-hn-XUj" kind="relationship" relationship="rootViewController" id="Gj8-lA-ggY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pYQ-w6-3rc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4590" y="5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
