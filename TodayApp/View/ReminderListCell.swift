@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ReminderListCell: UITableViewCell {
+final class ReminderListCell: UITableViewCell {
     typealias DoneButtonAction = () -> Void
     
     

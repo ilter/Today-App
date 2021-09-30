@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReminderListViewController: UITableViewController {
+final class ReminderListViewController: UITableViewController {
 
 }
 
@@ -48,7 +48,7 @@ extension ReminderListViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(identifier: "ReminderDetailViewController") as? ReminderDetailViewController else {
             return
         }

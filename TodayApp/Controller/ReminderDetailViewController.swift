@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ReminderDetailViewController: UITableViewController {
+final class ReminderDetailViewController: UITableViewController {
     
     enum ReminderRow: Int, CaseIterable {
 
