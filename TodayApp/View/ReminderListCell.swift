@@ -12,14 +12,22 @@ final class ReminderListCell: UITableViewCell {
     typealias DoneButtonAction = () -> Void
     
     
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     
-    var doneButtonAction: DoneButtonAction?
+    private var doneButtonAction: DoneButtonAction?
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         doneButtonAction?()
+    }
+    
+    func setupUI(title: String, dateText: String, isDone: Bool, doneButtonAction: @escaping DoneButtonAction) {
+        titleLabel.text = title
+        dateLabel.text = dateText
+        let image = isDone ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
+        doneButton.setBackgroundImage(image, for: .normal)
+        self.doneButtonAction = doneButtonAction
     }
     
 }
