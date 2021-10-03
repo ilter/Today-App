@@ -8,7 +8,7 @@
 import UIKit
 
 final class ReminderListDataSource: NSObject {
-    
+    var delegate: ReminderDetailDelegate?
 }
 
 extension ReminderListDataSource: UITableViewDataSource {
@@ -34,16 +34,5 @@ extension ReminderListDataSource: UITableViewDataSource {
         
         return cell
     }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(identifier: "ReminderDetailViewController") as? ReminderDetailViewController else {
-            return
-        }
-        
-        viewController.reminder = Reminder.testData[indexPath.row]
-        // self.navigationController?.pushViewController(viewController, animated: true)
 
-    }
 }
